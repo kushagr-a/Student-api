@@ -10,13 +10,13 @@ import (
 
 // struct tags bolte hai na ki anotations := `ymal:"env" env:"ENV" env-required:"true" env-default:"production"`
 type HTTPServer struct {
-	Addr string
+	Addr string `yaml:"address"`
 }
 
 type Config struct {
-	Env         string `ymal:"env" env:"ENV" env-required:"true" env-default:"production"`
-	StoragePath string `ymal:"storage_path" env-required:"true"`
-	HTTPServer  `ymal:"http_server"`
+	Env         string `yaml:"env" env:"ENV" env-required:"true" env-default:"production"`
+	StoragePath string `yaml:"storage_path" env-required:"true"`
+	HTTPServer  `yaml:"http_server"`
 }
 
 func MustLoad() *Config {
